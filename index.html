@@ -1,277 +1,604 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Porashona Point</title>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Poppins:wght@600&family=Noto+Serif+Bengali:wght@600&display=swap" rel="stylesheet">
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Porashona Point – আপডেটেড শিক্ষামূলক ফাইল ২০২৬</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet"/>
 
 <style>
+:root {
+  --blue:    #2563eb;
+  --blue-l:  #3b82f6;
+  --cyan:    #06b6d4;
+  --indigo:  #4f46e5;
+  --violet:  #7c3aed;
+  --emerald: #059669;
+  --em-l:    #10b981;
+  --amber:   #d97706;
+  --am-l:    #f59e0b;
+  --rose:    #e11d48;
+  --rose-l:  #f43f5e;
+  --bkash:   #e2136e;
+  --nagad:   #f05a28;
+  --glass:        rgba(255,255,255,0.60);
+  --glass-strong: rgba(255,255,255,0.80);
+  --glass-border: rgba(255,255,255,0.88);
+  --text-h:  #0a0f1e;
+  --text-b:  #1e293b;
+  --text-s:  #475569;
+  --text-m:  #94a3b8;
+  --shadow-sm: 0 2px 12px rgba(37,99,235,0.09);
+  --shadow-md: 0 8px 32px rgba(37,99,235,0.13);
+  --shadow-lg: 0 16px 48px rgba(37,99,235,0.17);
+  --r-sm:  14px; --r-md: 20px; --r-lg: 26px; --r-pill: 100px;
+  --fn-bn:  'Hind Siliguri', sans-serif;
+  --fn-dis: 'Plus Jakarta Sans', sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
 body{
-  margin:0;
-  font-family:'Hind Siliguri', sans-serif;
-  background: linear-gradient(135deg,#dbeafe,#f0fdf4);
-  color:#0f172a;
+  font-family:var(--fn-bn);
+  background:#dbeafe;
+  background-image:
+    radial-gradient(ellipse 80% 60% at 8%  0%,  #bfdbfe 0%, transparent 58%),
+    radial-gradient(ellipse 65% 50% at 92% 18%, #e0e7ff 0%, transparent 56%),
+    radial-gradient(ellipse 55% 50% at 50% 85%, #d1fae5 0%, transparent 58%),
+    radial-gradient(ellipse 48% 40% at 82% 98%, #fce7f3 0%, transparent 55%);
+  background-attachment:fixed;
+  min-height:100vh; color:var(--text-b); overflow-x:hidden;
 }
+/* Blobs */
+.blob{position:fixed;border-radius:50%;filter:blur(95px);opacity:0.26;z-index:0;pointer-events:none;animation:blobDrift 18s ease-in-out infinite alternate;}
+.blob-1{width:580px;height:580px;background:radial-gradient(#93c5fd,#818cf8);top:-160px;left:-160px;}
+.blob-2{width:440px;height:440px;background:radial-gradient(#6ee7b7,#bae6fd);bottom:-80px;right:-100px;animation-duration:23s;animation-direction:alternate-reverse;}
+.blob-3{width:280px;height:280px;background:radial-gradient(#fde68a,#fbcfe8);top:42%;left:52%;animation-duration:15s;}
+@keyframes blobDrift{0%{transform:translate(0,0) scale(1);}100%{transform:translate(48px,32px) scale(1.09);}}
 
-.container{
-  max-width:420px;
-  margin:auto;
-  padding:15px;
+.wrapper{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 16px 60px;}
+
+/* ── Offer Strip ── */
+.offer-strip{
+  position:relative;z-index:10;
+  background:linear-gradient(90deg,var(--indigo),var(--blue),var(--cyan),var(--blue),var(--indigo));
+  background-size:300% 100%;
+  animation:stripSlide 5s linear infinite;
+  color:#fff;text-align:center;padding:9px 16px;font-size:0.8rem;font-weight:700;letter-spacing:0.4px;
 }
+@keyframes stripSlide{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
 
-.card{
-  backdrop-filter: blur(14px);
-  background: rgba(255,255,255,0.6);
-  padding:16px;
-  border-radius:18px;
-  margin-bottom:15px;
-  box-shadow:0 8px 30px rgba(0,0,0,0.1);
+/* ── Logo ── */
+.nav{display:flex;justify-content:center;padding:28px 0 0;animation:fadeDown 0.7s ease both;}
+.logo-pill{
+  display:inline-flex;align-items:center;gap:12px;
+  background:var(--glass-strong);border:1.5px solid var(--glass-border);
+  backdrop-filter:blur(24px) saturate(1.8);-webkit-backdrop-filter:blur(24px) saturate(1.8);
+  border-radius:var(--r-pill);padding:10px 22px 10px 12px;
+  box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,0.9);
 }
-
-.logo{
-  text-align:center;
-  font-family:'Poppins', sans-serif;
-  font-size:26px;
-  font-weight:700;
+.logo-icon{
+  width:44px;height:44px;background:linear-gradient(135deg,var(--blue),var(--violet));
+  border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:21px;
+  box-shadow:0 4px 16px rgba(79,70,229,0.4),inset 0 1px 0 rgba(255,255,255,0.22);
 }
+.logo-name{font-family:var(--fn-dis);font-weight:900;font-size:1.13rem;background:linear-gradient(135deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.logo-tagline{display:block;font-size:0.57rem;font-weight:500;color:var(--text-m);-webkit-text-fill-color:var(--text-m);margin-top:-1px;letter-spacing:0.2px;}
 
-.subtitle{
-  text-align:center;
-  font-size:14px;
-  color:#334155;
+/* ── Hero ── */
+.hero{text-align:center;padding:26px 0 0;animation:fadeUp 0.8s 0.1s ease both;}
+.badge-limited{
+  display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,#fef3c7,#fde68a);
+  border:1.5px solid #fbbf24;border-radius:var(--r-pill);
+  padding:6px 18px;font-size:0.78rem;font-weight:700;color:#78350f;
+  box-shadow:0 4px 18px rgba(251,191,36,0.28);
+  animation:pulseGlow 2.8s ease-in-out infinite;margin-bottom:18px;
 }
+@keyframes pulseGlow{0%,100%{box-shadow:0 4px 18px rgba(251,191,36,0.22);}50%{box-shadow:0 4px 26px rgba(251,191,36,0.55);}}
+.bdot{width:7px;height:7px;border-radius:50%;background:#f59e0b;animation:blink 1.2s ease infinite;flex-shrink:0;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.25;}}
 
-.title{
-  font-size:20px;
-  font-family:'Noto Serif Bengali', serif;
+.hero-headline{font-family:var(--fn-dis);font-size:1.72rem;font-weight:900;line-height:1.28;color:var(--text-h);margin-bottom:22px;}
+.hero-headline em{font-style:normal;color:var(--blue);}
+
+/* Price card */
+.price-card{
+  background:var(--glass-strong);border:1.5px solid var(--glass-border);
+  backdrop-filter:blur(26px) saturate(1.8);-webkit-backdrop-filter:blur(26px) saturate(1.8);
+  border-radius:var(--r-lg);padding:22px 20px 18px;
+  box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,0.95);
+  margin-bottom:16px;position:relative;overflow:hidden;
 }
+.price-card::after{content:'';position:absolute;top:-45px;right:-45px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.09),transparent 70%);}
+.price-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:10px;}
+.price-old{font-size:1rem;color:var(--text-m);text-decoration:line-through;font-weight:500;}
+.price-sep{font-family:var(--fn-dis);font-size:1.1rem;color:var(--rose);font-weight:800;}
+.price-new{font-family:var(--fn-dis);font-size:2.9rem;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--rose),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 6px rgba(225,29,72,0.2));}
+.price-badges{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;}
+.pbadge{display:inline-flex;align-items:center;gap:5px;border-radius:var(--r-pill);padding:4px 14px;font-size:0.75rem;font-weight:700;color:#fff;}
+.pbadge-green{background:linear-gradient(135deg,var(--emerald),var(--em-l));box-shadow:0 3px 10px rgba(5,150,105,0.32);}
+.pbadge-red{background:linear-gradient(135deg,var(--rose),var(--rose-l));box-shadow:0 3px 10px rgba(225,29,72,0.28);}
 
-.offer{
-  color:#ef4444;
-  font-weight:700;
-  text-align:center;
+/* Trust bar */
+.trust-bar{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(5,150,105,0.08);border:1px solid rgba(5,150,105,0.2);border-radius:var(--r-pill);padding:9px 20px;margin-top:4px;}
+.trust-bar .t-text{font-size:0.85rem;font-weight:600;color:#065f46;}
+.trust-bar .t-text strong{color:var(--emerald);}
+
+/* ── Stats ── */
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
+.stat-box{background:var(--glass-strong);border:1.5px solid var(--glass-border);backdrop-filter:blur(16px);border-radius:var(--r-md);padding:15px 10px;text-align:center;box-shadow:var(--shadow-sm);}
+.stat-num{font-family:var(--fn-dis);font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.stat-lbl{font-size:0.69rem;font-weight:600;color:var(--text-s);margin-top:4px;line-height:1.3;}
+
+/* Trust chips */
+.trust-chips{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:10px;}
+.chip{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,0.62);border:1px solid rgba(255,255,255,0.84);border-radius:var(--r-pill);padding:4px 12px;font-size:0.71rem;font-weight:600;color:var(--text-s);backdrop-filter:blur(8px);}
+
+/* ── Buttons ── */
+.btn-group{display:flex;flex-direction:column;gap:11px;margin-top:20px;animation:fadeUp 0.8s 0.22s ease both;}
+.btn{display:flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:var(--r-sm);font-family:var(--fn-bn);font-size:1rem;font-weight:700;cursor:pointer;padding:16px 24px;text-decoration:none;letter-spacing:0.2px;transition:transform 0.17s cubic-bezier(.34,1.56,.64,1),box-shadow 0.17s;position:relative;overflow:hidden;}
+.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.14) 0%,transparent 100%);pointer-events:none;}
+.btn:active{transform:scale(0.96)!important;}
+.btn-demo{background:var(--glass-strong);border:1.5px solid var(--glass-border);backdrop-filter:blur(16px);color:var(--text-b);box-shadow:var(--shadow-md);}
+.btn-demo:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.btn-cta{background:linear-gradient(135deg,var(--blue),var(--indigo),var(--violet));color:#fff;box-shadow:0 8px 24px rgba(79,70,229,0.42);}
+.btn-cta:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(79,70,229,0.52);}
+.btn-buy{background:linear-gradient(135deg,var(--rose),#f97316);color:#fff;box-shadow:0 8px 24px rgba(225,29,72,0.4);font-size:1.05rem;}
+.btn-buy:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(225,29,72,0.48);}
+.btn-ss{background:var(--glass-strong);border:1.5px solid var(--glass-border);backdrop-filter:blur(14px);color:var(--text-b);box-shadow:var(--shadow-sm);}
+.btn-ss:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+
+/* ── Cards ── */
+.card{background:var(--glass);border:1.5px solid var(--glass-border);backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);border-radius:var(--r-lg);padding:26px 20px;box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,0.85);margin-top:22px;}
+.card-title{font-family:var(--fn-dis);font-size:1.06rem;font-weight:800;color:var(--text-h);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+.ctbar{width:4px;height:22px;border-radius:4px;background:linear-gradient(180deg,var(--blue),var(--violet));flex-shrink:0;}
+
+/* Scroll reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* ── Benefits ── */
+.benefit-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.benefit-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.76);border-radius:var(--r-sm);padding:13px 14px;box-shadow:0 2px 8px rgba(37,99,235,0.055);transition:transform 0.18s,box-shadow 0.18s;}
+.benefit-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(37,99,235,0.1);}
+.b-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.ic-blue  {background:linear-gradient(135deg,#dbeafe,#bfdbfe);}
+.ic-green {background:linear-gradient(135deg,#d1fae5,#a7f3d0);}
+.ic-vlt   {background:linear-gradient(135deg,#ede9fe,#ddd6fe);}
+.ic-amb   {background:linear-gradient(135deg,#fef3c7,#fde68a);}
+.ic-cyan  {background:linear-gradient(135deg,#cffafe,#a5f3fc);}
+.b-title{font-size:0.9rem;font-weight:700;color:var(--text-h);margin-bottom:2px;}
+.b-desc{font-size:0.78rem;color:var(--text-s);line-height:1.52;}
+
+/* ── FAQ ── */
+.faq-list{display:flex;flex-direction:column;gap:8px;}
+.faq-item{background:rgba(255,255,255,0.5);border:1.5px solid rgba(255,255,255,0.78);border-radius:var(--r-sm);overflow:hidden;transition:box-shadow 0.2s;}
+.faq-item.open{border-color:rgba(37,99,235,0.2);box-shadow:0 4px 16px rgba(37,99,235,0.1);}
+.faq-q{width:100%;background:none;border:none;text-align:left;padding:14px 14px;font-family:var(--fn-bn);font-size:0.9rem;font-weight:600;color:var(--text-h);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.faq-arrow{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--indigo));display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.65rem;transition:transform 0.3s cubic-bezier(.34,1.56,.64,1);}
+.faq-item.open .faq-arrow{transform:rotate(180deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.38s ease,padding 0.25s;font-size:0.86rem;color:var(--text-s);line-height:1.72;padding:0 14px;}
+.faq-item.open .faq-a{max-height:260px;padding:0 14px 14px;}
+
+/* ── Payment ── */
+.payment-hero{background:linear-gradient(135deg,var(--rose),#f97316);border-radius:var(--r-md);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;box-shadow:0 8px 28px rgba(225,29,72,0.28);position:relative;overflow:hidden;}
+.payment-hero::before{content:'';position:absolute;top:-35px;right:-35px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,0.11);}
+.ph-label{font-size:0.78rem;color:rgba(255,255,255,0.8);font-weight:600;}
+.ph-price{font-family:var(--fn-dis);font-size:2.6rem;font-weight:900;color:#fff;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,0.12);}
+.ph-icon{font-size:2.8rem;}
+
+.steps{display:flex;flex-direction:column;gap:0;}
+.step-row{display:flex;gap:14px;position:relative;padding-bottom:18px;}
+.step-row:last-child{padding-bottom:0;}
+.step-line-wrap{display:flex;flex-direction:column;align-items:center;}
+.step-num{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;font-family:var(--fn-dis);font-weight:800;font-size:0.88rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,99,235,0.38);}
+.step-conn{flex:1;width:2px;margin-top:4px;background:linear-gradient(180deg,rgba(37,99,235,0.22),transparent);border-radius:2px;}
+.step-row:last-child .step-conn{display:none;}
+.step-body{flex:1;padding-top:5px;}
+.step-title{font-size:0.9rem;font-weight:700;color:var(--text-h);margin-bottom:4px;}
+.step-desc{font-size:0.82rem;color:var(--text-s);line-height:1.55;}
+
+/* Payment method card */
+.pm-card{background:rgba(255,255,255,0.62);border:1.5px solid rgba(255,255,255,0.88);border-radius:var(--r-sm);padding:12px 14px;margin-top:9px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,0.055);}
+.pm-left{display:flex;align-items:center;gap:10px;}
+.pm-badge{font-family:var(--fn-dis);font-weight:800;font-size:0.78rem;padding:5px 11px;border-radius:8px;flex-shrink:0;letter-spacing:0.3px;}
+.pm-bkash{background:var(--bkash);color:#fff;box-shadow:0 3px 10px rgba(226,19,110,0.28);}
+.pm-nagad{background:var(--nagad);color:#fff;box-shadow:0 3px 10px rgba(240,90,40,0.28);}
+.pm-num{font-family:var(--fn-dis);font-size:0.98rem;font-weight:700;color:var(--text-h);letter-spacing:0.5px;}
+
+/* Copy button */
+.copy-btn{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(--blue-l),var(--indigo));border:none;border-radius:8px;padding:8px 13px;font-family:var(--fn-bn);font-size:0.76rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;box-shadow:0 3px 10px rgba(37,99,235,0.28);transition:transform 0.15s,box-shadow 0.15s;}
+.copy-btn:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(37,99,235,0.38);}
+.copy-btn:active{transform:scale(0.94);}
+.copy-btn.copied{background:linear-gradient(135deg,var(--emerald),var(--em-l));box-shadow:0 3px 10px rgba(5,150,105,0.28);}
+
+/* Email input */
+.email-group{display:flex;flex-direction:column;gap:7px;margin-top:22px;}
+.email-label{font-size:0.84rem;font-weight:700;color:var(--text-h);}
+.email-input{border:1.5px solid rgba(37,99,235,0.2);border-radius:var(--r-sm);padding:14px 16px;font-family:var(--fn-bn);font-size:0.96rem;background:rgba(255,255,255,0.72);backdrop-filter:blur(10px);color:var(--text-h);outline:none;transition:border-color 0.2s,box-shadow 0.2s;box-shadow:var(--shadow-sm);}
+.email-input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,0.11),var(--shadow-sm);}
+.email-input::placeholder{color:var(--text-m);}
+.email-input.err{border-color:var(--rose);box-shadow:0 0 0 4px rgba(225,29,72,0.1);}
+
+.btn-row{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
+
+/* ── Floating WA ── */
+.wa-float{position:fixed;bottom:24px;right:18px;z-index:999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 6px 24px rgba(37,211,102,0.5),0 2px 8px rgba(0,0,0,0.1);text-decoration:none;animation:waFloat 2.8s ease-in-out infinite;transition:transform 0.2s;}
+.wa-float:hover{transform:scale(1.1)!important;}
+@keyframes waFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+.wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,0.32);animation:waPing 2.1s ease infinite;}
+@keyframes waPing{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.48);opacity:0;}}
+
+/* ── Footer ── */
+footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
+.footer-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,0.16),transparent);margin:0 28px 18px;}
+.footer-logo{font-family:var(--fn-dis);font-weight:900;font-size:1rem;background:linear-gradient(135deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:7px;}
+.footer-copy{font-size:0.74rem;color:var(--text-m);line-height:1.9;}
+.footer-copy .heart{color:var(--rose);-webkit-text-fill-color:var(--rose);}
+
+/* ── Animations ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:360px){
+  .hero-headline{font-size:1.45rem;}
+  .ph-price{font-size:2.2rem;}
+  .stat-num{font-size:1.25rem;}
 }
-
-.price-old{
-  text-decoration: line-through;
-  color:#64748b;
-}
-
-.price-new{
-  color:#16a34a;
-  font-size:20px;
-  font-weight:700;
-}
-
-.btn{
-  display:block;
-  text-align:center;
-  padding:13px;
-  margin:10px 0;
-  border-radius:12px;
-  text-decoration:none;
-  color:white;
-  font-weight:600;
-  transition:0.2s;
-}
-
-.btn:hover{
-  transform:scale(1.05);
-}
-
-.buy{
-  background:#22c55e;
-  box-shadow:0 0 10px #22c55e;
-}
-
-.demo{
-  background:#334155;
-}
-
-.faq{
-  background:#e2e8f0;
-  padding:10px;
-  margin-top:8px;
-  border-radius:12px;
-  cursor:pointer;
-}
-
-.answer{
-  display:none;
-  padding-top:6px;
-  font-size:14px;
-}
-
-input{
-  width:100%;
-  padding:12px;
-  border-radius:10px;
-  border:1px solid #cbd5e1;
-  margin-top:8px;
-}
-
-.copy-btn{
-  background:#cbd5e1;
-  padding:5px 10px;
-  margin-left:10px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-.footer{
-  text-align:center;
-  font-size:12px;
-  color:#64748b;
-  margin-top:20px;
-}
-
-.page{display:none;}
-.active{display:block;}
-
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
 
-<!-- HOME -->
-<div id="home" class="page active">
+<!-- Floating WhatsApp -->
+<a class="wa-float" href="https://wa.me/8801973965015" target="_blank" title="WhatsApp">💬</a>
 
-<div class="card">
-<div class="logo">Porashona Point</div>
-<div class="subtitle">
-সাশ্রয়ী মূল্যে আপডেটেড শিক্ষামূলক ফাইলের নির্ভরযোগ্য প্ল্যাটফর্ম।
+<!-- Offer Strip -->
+<div class="offer-strip">⚡ সীমিত সময়ের অফার — ৳৪৯৯ এর জায়গায় মাত্র ৳২৯৯ &nbsp;|&nbsp; আজই সুযোগ নিন!</div>
+
+<div class="wrapper">
+
+  <!-- LOGO -->
+  <nav class="nav">
+    <div class="logo-pill">
+      <div class="logo-icon">📘</div>
+      <div>
+        <span class="logo-name">Porashona Point</span>
+        <span class="logo-tagline">সাশ্রয়ী মূল্যে আপডেটেড শিক্ষামূলক ফাইলের নির্ভরযোগ্য প্ল্যাটফর্ম</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge-limited">
+      <span class="bdot"></span>
+      ⚡ Limited Time Offer — আজই সুযোগ নিন!
+    </div>
+
+    <h1 class="hero-headline">
+      📘 ১ম – ১২ শ্রেণির সকল<br/><em>আপডেটেড ২০২৬ ফাইল</em>
+    </h1>
+
+    <div class="price-card">
+      <div class="price-row">
+        <span class="price-old">৳৪৯৯</span>
+        <span class="price-sep">→</span>
+        <span class="price-new">৳২৯৯</span>
+      </div>
+      <div class="price-badges">
+        <span class="pbadge pbadge-green">🎉 ৳২০০ সাশ্রয়</span>
+        <span class="pbadge pbadge-red">⏳ অফার শীঘ্রই শেষ</span>
+      </div>
+    </div>
+
+    <div class="trust-bar">
+      <span style="font-size:1rem;">🏆</span>
+      <span class="t-text">ইতোমধ্যে <strong>৩২৫+</strong> শিক্ষক ব্যবহার করছেন</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-row reveal">
+    <div class="stat-box">
+      <div class="stat-num">৩২৫+</div>
+      <div class="stat-lbl">সন্তুষ্ট শিক্ষক</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">১২টি</div>
+      <div class="stat-lbl">সকল শ্রেণি</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">২০২৬</div>
+      <div class="stat-lbl">সম্পূর্ণ আপডেট</div>
+    </div>
+  </div>
+
+  <!-- CTA BUTTONS -->
+  <div class="btn-group">
+    <a class="btn btn-demo" href="https://drive.google.com/drive/folders/1HqmL3s2dOMwjakEPteLNFcmika67lEHD" target="_blank">
+      📂 বিনামূল্যে ডেমো দেখুন
+    </a>
+    <a class="btn btn-cta" href="#payment">
+      🛒 এখনই কিনুন — মাত্র ৳২৯৯
+    </a>
+  </div>
+
+  <!-- TRUST CHIPS -->
+  <div class="trust-chips reveal">
+    <span class="chip">🔒 নিরাপদ পেমেন্ট</span>
+    <span class="chip">⚡ ২–১৫ মিনিটে ডেলিভারি</span>
+    <span class="chip">🔄 ফ্রি আপডেট</span>
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="card reveal">
+    <div class="card-title">
+      <span class="ctbar"></span>
+      আপনি কী কী পাচ্ছেন?
+    </div>
+    <ul class="benefit-list">
+      <li class="benefit-item">
+        <span class="b-icon ic-blue">✅</span>
+        <div>
+          <div class="b-title">সম্পূর্ণ আপডেটেড ২০২৬</div>
+          <div class="b-desc">নতুন কারিকুলাম অনুযায়ী প্রতিটি ফাইল আপডেট করা</div>
+        </div>
+      </li>
+      <li class="benefit-item">
+        <span class="b-icon ic-green">📝</span>
+        <div>
+          <div class="b-title">হাজার MCQ + সঠিক উত্তর</div>
+          <div class="b-desc">সকল বিষয়ে হাজার হাজার MCQ প্রশ্ন উত্তরসহ</div>
+        </div>
+      </li>
+      <li class="benefit-item">
+        <span class="b-icon ic-vlt">📄</span>
+        <div>
+          <div class="b-title">Editable Word ফাইল</div>
+          <div class="b-desc">যেকোনো ডিভাইসে খুলুন, এডিট করুন, প্রিন্ট করুন</div>
+        </div>
+      </li>
+      <li class="benefit-item">
+        <span class="b-icon ic-amb">🚀</span>
+        <div>
+          <div class="b-title">Ready to Use</div>
+          <div class="b-desc">ডাউনলোড করেই সরাসরি ক্লাসে ব্যবহার করুন</div>
+        </div>
+      </li>
+      <li class="benefit-item">
+        <span class="b-icon ic-cyan">🔄</span>
+        <div>
+          <div class="b-title">ফ্রি আপডেট চিরজীবন</div>
+          <div class="b-desc">একবার কিনলে ভবিষ্যতের সব আপডেট বিনামূল্যে পাবেন</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card reveal">
+    <div class="card-title">
+      <span class="ctbar"></span>
+      সাধারণ প্রশ্নোত্তর (FAQ)
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ফাইলগুলো কোন শ্রেণির জন্য?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">১ম শ্রেণি থেকে ১২ শ্রেণি পর্যন্ত সকল শ্রেণির আপডেটেড ২০২৬ ফাইল এই প্যাকেজে অন্তর্ভুক্ত।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          পেমেন্ট করার পর ফাইল কতক্ষণে পাব?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">পেমেন্টের স্ক্রিনশট WhatsApp-এ পাঠানোর পর আপনার দেওয়া Gmail-এ Google Drive লিঙ্ক পাঠানো হবে। সাধারণত মাত্র ২–১৫ মিনিটের মধ্যে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ফাইলগুলো কি Editable?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">হ্যাঁ! সব ফাইল Microsoft Word ফরম্যাটে (.docx) দেওয়া হয়, যা যেকোনো ডিভাইসে সহজে এডিট ও প্রিন্ট করা যাবে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          কোন কোন বিষয়ের ফাইল আছে?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">বাংলা, ইংরেজি, গণিত, বিজ্ঞান, সমাজ, ইসলাম শিক্ষাসহ সকল বিষয়ের ফাইল অন্তর্ভুক্ত। ডেমো দেখে নিশ্চিত হয়ে নিন।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Free updates কি সত্যিই পাওয়া যাবে?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">হ্যাঁ, একবার কিনলে ভবিষ্যতে যেকোনো আপডেট বিনামূল্যে পাবেন। WhatsApp-এ জানালেই আপডেটেড ফাইল পাঠানো হবে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          কোন মাধ্যমে পেমেন্ট করা যাবে?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">Bkash ও Nagad উভয় মাধ্যমে পেমেন্ট করা যাবে। নম্বর: 01581857663। নিচে Copy বাটনে চাপলেই নম্বর কপি হয়ে যাবে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          ডেমো দেখতে পারব?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">অবশ্যই! উপরের "ডেমো দেখুন" বাটনে ক্লিক করলে Google Drive ফোল্ডারে নমুনা ফাইল দেখতে পাবেন — সম্পূর্ণ বিনামূল্যে।</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          মোবাইলে কাজ করবে?
+          <span class="faq-arrow">▾</span>
+        </button>
+        <div class="faq-a">হ্যাঁ! Google Drive লিঙ্ক পেলে মোবাইল, ট্যাবলেট বা কম্পিউটার — যেকোনো ডিভাইসে ডাউনলোড করে ব্যবহার করতে পারবেন।</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PAYMENT -->
+  <div class="card reveal" id="payment">
+    <div class="card-title">
+      <span class="ctbar"></span>
+      💳 পেমেন্ট করুন ও ফাইল নিন
+    </div>
+
+    <div class="payment-hero">
+      <div>
+        <div class="ph-label">অফার মূল্য</div>
+        <div class="ph-price">৳২৯৯ 🔥</div>
+      </div>
+      <div class="ph-icon">💸</div>
+    </div>
+
+    <div class="steps">
+      <div class="step-row">
+        <div class="step-line-wrap">
+          <div class="step-num">১</div>
+          <div class="step-conn"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">আপনার Gmail লিখুন</div>
+          <div class="step-desc">নিচের ঘরে Gmail দিন — এই ঠিকানায় ফাইল পাঠানো হবে।</div>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-line-wrap">
+          <div class="step-num">২</div>
+          <div class="step-conn"></div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">নিচের নম্বরে ২৯৯ টাকা পাঠান</div>
+          <div class="step-desc">Bkash বা Nagad — যেকোনো একটিতে পাঠান:</div>
+
+          <div class="pm-card">
+            <div class="pm-left">
+              <span class="pm-badge pm-bkash">bKash</span>
+              <span class="pm-num">01581857663</span>
+            </div>
+            <button class="copy-btn" onclick="copyNum(this,'01581857663')">📋 কপি</button>
+          </div>
+
+          <div class="pm-card">
+            <div class="pm-left">
+              <span class="pm-badge pm-nagad">Nagad</span>
+              <span class="pm-num">01581857663</span>
+            </div>
+            <button class="copy-btn" onclick="copyNum(this,'01581857663')">📋 কপি</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-row">
+        <div class="step-line-wrap">
+          <div class="step-num">৩</div>
+        </div>
+        <div class="step-body">
+          <div class="step-title">WhatsApp-এ স্ক্রিনশট পাঠান</div>
+          <div class="step-desc">পেমেন্টের স্ক্রিনশট পাঠালেই <strong>২–১৫ মিনিটের মধ্যে</strong> Gmail-এ ফাইল পৌঁছাবে।</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-group">
+      <label class="email-label" for="userEmail">📧 আপনার Gmail লিখুন</label>
+      <input class="email-input" type="email" id="userEmail" placeholder="example@gmail.com"/>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-buy" onclick="openWhatsApp()">🛒 WhatsApp-এ অর্ডার করুন</button>
+      <button class="btn btn-ss" onclick="sendScreenshot()">📸 পেমেন্ট স্ক্রিনশট পাঠান</button>
+    </div>
+
+    <div class="trust-chips" style="margin-top:16px;">
+      <span class="chip">⚡ ২–১৫ মিনিটে ডেলিভারি</span>
+      <span class="chip">🔒 ১০০% নিরাপদ</span>
+    </div>
+  </div>
+
 </div>
-</div>
 
-<div class="card">
-<div class="offer">⚡ লিমিটেড টাইম অফার</div>
-<div class="title">📘 ১ম – ১২ শ্রেণির সকল আপডেটেড ২০২৬ ফাইল</div>
-<br>
-<span class="price-old">499 টাকা</span> →
-<span class="price-new">299 টাকা</span>
-</div>
-
-<div class="card">
-<a href="https://drive.google.com/drive/folders/1HqmL3s2dOMwjakEPteLNFcmika67lEHD" class="btn demo">📂 ডেমো দেখুন</a>
-<a href="#" onclick="showPage('buy')" class="btn buy">🛒 কিনুন এখনই</a>
-</div>
-
-<div class="card">
-<h3>📖 প্রোডাক্ট সম্পর্কে</h3>
-<p>
-✔️ সম্পূর্ণ আপডেটেড ২০২৬ সালের ফাইল<br>
-✔️ হাজার হাজার MCQ প্রশ্ন ও উত্তরসহ<br>
-✔️ সম্পূর্ণ Editable Word ফাইল<br>
-✔️ সুন্দরভাবে সাজানো, সরাসরি ব্যবহারযোগ্য<br>
-✔️ ভবিষ্যতের সকল আপডেট ফ্রি পাবেন
-</p>
-</div>
-
-<div class="card">
-<h3>❓ FAQ</h3>
-
-<div class="faq" onclick="toggle(this)">
-১. লেকচার শীটগুলো কি সিলেবাস অনুযায়ী আপডেট?
-<div class="answer">উত্তর: হ্যাঁ, শীটগুলো সর্বশেষ সিলেবাস অনুযায়ী তৈরি করা হয়েছে এবং নিয়মিত আপডেট করা হয়।</div>
-</div>
-
-<div class="faq" onclick="toggle(this)">
-২. শীট কেনার পর যদি সিলেবাসে পরিবর্তন আসে?
-<div class="answer">উত্তর: একবার কিনলেই এক বছরের মধ্যে সব আপডেট সম্পূর্ণ ফ্রি দেওয়া হবে।</div>
-</div>
-
-<div class="faq" onclick="toggle(this)">
-৩. আপডেট পেতে আলাদা টাকা দিতে হবে?
-<div class="answer">উত্তর: না, একবার পেমেন্ট করলেই ভবিষ্যতের আপডেট ফ্রি পাবেন।</div>
-</div>
-
-<div class="faq" onclick="toggle(this)">
-৪. কারিকুলাম পরিবর্তন হলে কী হবে?
-<div class="answer">উত্তর: যদি সম্পূর্ণ নতুন কারিকুলাম আসে, তখন নতুন শীটের জন্য আলাদা পেমেন্ট লাগতে পারে।</div>
-</div>
-
-<div class="faq" onclick="toggle(this)">
-৫. আপডেটগুলো কিভাবে পাব?
-<div class="answer">উত্তর: আপনার দেওয়া ইমেইলে আপডেট পাঠানো হবে।</div>
-</div>
-
-<div class="faq" onclick="toggle(this)">
-৬. মোবাইলে ব্যবহার করা যাবে?
-<div class="answer">উত্তর: হ্যাঁ, মোবাইল ও কম্পিউটার উভয় ডিভাইসে ব্যবহার করা যাবে।</div>
-</div>
-
-<div class="faq" onclick="toggle(this)">
-৭. সাহায্য পাবো?
-<div class="answer">উত্তর: হ্যাঁ, WhatsApp এর মাধ্যমে সাপোর্ট দেওয়া হবে।</div>
-</div>
-
-</div>
-
-<div class="footer">
-© 2026 Porashona Point — All Rights Reserved
-</div>
-
-</div>
-
-<!-- BUY -->
-<div id="buy" class="page">
-
-<div class="card">
-<div class="title">💳 পেমেন্ট পদ্ধতি</div>
-<div class="price-new">🔥 মাত্র ২৯৯ টাকা</div>
-</div>
-
-<div class="card">
-<p>১) আপনার Gmail লিখুন এবং সাবমিট করুন</p>
-<input type="text" id="email" placeholder="example@gmail.com">
-<a href="#" onclick="sendWhatsApp()" class="btn buy">সাবমিট করুন</a>
-
-<p>২) নিচের নাম্বারে Send Money করুন</p>
-<p>বিকাশ - 01581857663 <span class="copy-btn" onclick="copy('01581857663')">Copy</span></p>
-<p>নগদ - 01581857663 <span class="copy-btn" onclick="copy('01581857663')">Copy</span></p>
-
-<p>৩) পেমেন্ট এর স্ক্রিনশট তুলে নিচে ক্লিক করে পাঠান</p>
-<a href="https://wa.me/8801973965015?text=আমি পেমেন্ট করেছি, স্ক্রিনশট পাঠাচ্ছি" class="btn demo">
-📤 স্ক্রিনশট সাবমিট করুন
-</a>
-</div>
-
-<div class="footer">
-© 2026 Porashona Point — All Rights Reserved
-</div>
-
-</div>
-
-</div>
+<footer>
+  <div class="footer-divider"></div>
+  <div class="footer-logo">📘 Porashona Point</div>
+  <div class="footer-copy">
+    সাশ্রয়ী মূল্যে আপডেটেড শিক্ষামূলক ফাইলের নির্ভরযোগ্য প্ল্যাটফর্ম<br/>
+    © ২০২৬ Porashona Point — All Rights Reserved<br/>
+    Made with <span class="heart">❤️</span> for Bangladeshi Teachers &amp; Students
+  </div>
+</footer>
 
 <script>
-function toggle(el){
-  let ans = el.querySelector(".answer");
-  ans.style.display = ans.style.display === "block" ? "none" : "block";
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
 }
 
-function showPage(page){
-  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
-  document.getElementById(page).classList.add("active");
-  window.scrollTo(0,0);
+function copyNum(btn, num) {
+  const doFeedback = () => {
+    btn.classList.add('copied');
+    btn.innerHTML = '✅ কপি!';
+    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '📋 কপি'; }, 2200);
+  };
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(num).then(doFeedback).catch(() => fallbackCopy(num, doFeedback));
+  } else {
+    fallbackCopy(num, doFeedback);
+  }
+}
+function fallbackCopy(text, cb) {
+  const ta = document.createElement('textarea');
+  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta); ta.select();
+  try { document.execCommand('copy'); } catch(e) {}
+  document.body.removeChild(ta); cb();
 }
 
-function copy(text){
-  navigator.clipboard.writeText(text);
-  alert("Copied!");
+function openWhatsApp() {
+  const inp = document.getElementById('userEmail');
+  const email = inp.value.trim();
+  if (!email || !email.includes('@') || !email.includes('.')) {
+    inp.classList.add('err'); inp.focus();
+    setTimeout(() => inp.classList.remove('err'), 2200);
+    return;
+  }
+  const msg = encodeURIComponent('আমি ফাইল নিতে চাই, আমার ইমেইল: ' + email);
+  window.open('https://wa.me/8801973965015?text=' + msg, '_blank');
 }
 
-function sendWhatsApp(){
-  let email = document.getElementById("email").value;
-  let url = "https://wa.me/8801973965015?text=আমি ফাইল নিতে চাই, আমার ইমেইল: " + email;
-  window.open(url, '_blank');
+function sendScreenshot() {
+  const msg = encodeURIComponent('আমি পেমেন্ট করেছি, স্ক্রিনশট পাঠাচ্ছি');
+  window.open('https://wa.me/8801973965015?text=' + msg, '_blank');
 }
+
+/* Scroll reveal */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.09 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
-
 </body>
-</html>
+  </html>
