@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Porashona Point</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600&family=Poppins:wght@600&family=Noto+Serif+Bengali:wght@600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Hind Siliguri', sans-serif;
+  background: linear-gradient(135deg,#dbeafe,#f0fdf4);
+  color:#0f172a;
+}
+
+.container{
+  max-width:420px;
+  margin:auto;
+  padding:15px;
+}
+
+.card{
+  backdrop-filter: blur(14px);
+  background: rgba(255,255,255,0.6);
+  padding:16px;
+  border-radius:18px;
+  margin-bottom:15px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.1);
+}
+
+.logo{
+  text-align:center;
+  font-family:'Poppins', sans-serif;
+  font-size:26px;
+  font-weight:700;
+}
+
+.subtitle{
+  text-align:center;
+  font-size:14px;
+  color:#334155;
+}
+
+.title{
+  font-size:20px;
+  font-family:'Noto Serif Bengali', serif;
+}
+
+.offer{
+  color:#ef4444;
+  font-weight:700;
+  text-align:center;
+}
+
+.price-old{
+  text-decoration: line-through;
+  color:#64748b;
+}
+
+.price-new{
+  color:#16a34a;
+  font-size:20px;
+  font-weight:700;
+}
+
+.btn{
+  display:block;
+  text-align:center;
+  padding:13px;
+  margin:10px 0;
+  border-radius:12px;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  transition:0.2s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+}
+
+.buy{
+  background:#22c55e;
+  box-shadow:0 0 10px #22c55e;
+}
+
+.demo{
+  background:#334155;
+}
+
+.faq{
+  background:#e2e8f0;
+  padding:10px;
+  margin-top:8px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+.answer{
+  display:none;
+  padding-top:6px;
+  font-size:14px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid #cbd5e1;
+  margin-top:8px;
+}
+
+.copy-btn{
+  background:#cbd5e1;
+  padding:5px 10px;
+  margin-left:10px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#64748b;
+  margin-top:20px;
+}
+
+.page{display:none;}
+.active{display:block;}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HOME -->
+<div id="home" class="page active">
+
+<div class="card">
+<div class="logo">Porashona Point</div>
+<div class="subtitle">
+সাশ্রয়ী মূল্যে আপডেটেড শিক্ষামূলক ফাইলের নির্ভরযোগ্য প্ল্যাটফর্ম।
+</div>
+</div>
+
+<div class="card">
+<div class="offer">⚡ লিমিটেড টাইম অফার</div>
+<div class="title">📘 ১ম – ১২ শ্রেণির সকল আপডেটেড ২০২৬ ফাইল</div>
+<br>
+<span class="price-old">499 টাকা</span> →
+<span class="price-new">299 টাকা</span>
+</div>
+
+<div class="card">
+<a href="https://drive.google.com/drive/folders/1HqmL3s2dOMwjakEPteLNFcmika67lEHD" class="btn demo">📂 ডেমো দেখুন</a>
+<a href="#" onclick="showPage('buy')" class="btn buy">🛒 কিনুন এখনই</a>
+</div>
+
+<div class="card">
+<h3>📖 প্রোডাক্ট সম্পর্কে</h3>
+<p>
+✔️ সম্পূর্ণ আপডেটেড ২০২৬ সালের ফাইল<br>
+✔️ হাজার হাজার MCQ প্রশ্ন ও উত্তরসহ<br>
+✔️ সম্পূর্ণ Editable Word ফাইল<br>
+✔️ সুন্দরভাবে সাজানো, সরাসরি ব্যবহারযোগ্য<br>
+✔️ ভবিষ্যতের সকল আপডেট ফ্রি পাবেন
+</p>
+</div>
+
+<div class="card">
+<h3>❓ FAQ</h3>
+
+<div class="faq" onclick="toggle(this)">
+১. লেকচার শীটগুলো কি সিলেবাস অনুযায়ী আপডেট?
+<div class="answer">উত্তর: হ্যাঁ, শীটগুলো সর্বশেষ সিলেবাস অনুযায়ী তৈরি করা হয়েছে এবং নিয়মিত আপডেট করা হয়।</div>
+</div>
+
+<div class="faq" onclick="toggle(this)">
+২. শীট কেনার পর যদি সিলেবাসে পরিবর্তন আসে?
+<div class="answer">উত্তর: একবার কিনলেই এক বছরের মধ্যে সব আপডেট সম্পূর্ণ ফ্রি দেওয়া হবে।</div>
+</div>
+
+<div class="faq" onclick="toggle(this)">
+৩. আপডেট পেতে আলাদা টাকা দিতে হবে?
+<div class="answer">উত্তর: না, একবার পেমেন্ট করলেই ভবিষ্যতের আপডেট ফ্রি পাবেন।</div>
+</div>
+
+<div class="faq" onclick="toggle(this)">
+৪. কারিকুলাম পরিবর্তন হলে কী হবে?
+<div class="answer">উত্তর: যদি সম্পূর্ণ নতুন কারিকুলাম আসে, তখন নতুন শীটের জন্য আলাদা পেমেন্ট লাগতে পারে।</div>
+</div>
+
+<div class="faq" onclick="toggle(this)">
+৫. আপডেটগুলো কিভাবে পাব?
+<div class="answer">উত্তর: আপনার দেওয়া ইমেইলে আপডেট পাঠানো হবে।</div>
+</div>
+
+<div class="faq" onclick="toggle(this)">
+৬. মোবাইলে ব্যবহার করা যাবে?
+<div class="answer">উত্তর: হ্যাঁ, মোবাইল ও কম্পিউটার উভয় ডিভাইসে ব্যবহার করা যাবে।</div>
+</div>
+
+<div class="faq" onclick="toggle(this)">
+৭. সাহায্য পাবো?
+<div class="answer">উত্তর: হ্যাঁ, WhatsApp এর মাধ্যমে সাপোর্ট দেওয়া হবে।</div>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 Porashona Point — All Rights Reserved
+</div>
+
+</div>
+
+<!-- BUY -->
+<div id="buy" class="page">
+
+<div class="card">
+<div class="title">💳 পেমেন্ট পদ্ধতি</div>
+<div class="price-new">🔥 মাত্র ২৯৯ টাকা</div>
+</div>
+
+<div class="card">
+<p>১) আপনার Gmail লিখুন এবং সাবমিট করুন</p>
+<input type="text" id="email" placeholder="example@gmail.com">
+<a href="#" onclick="sendWhatsApp()" class="btn buy">সাবমিট করুন</a>
+
+<p>২) নিচের নাম্বারে Send Money করুন</p>
+<p>বিকাশ - 01581857663 <span class="copy-btn" onclick="copy('01581857663')">Copy</span></p>
+<p>নগদ - 01581857663 <span class="copy-btn" onclick="copy('01581857663')">Copy</span></p>
+
+<p>৩) পেমেন্ট এর স্ক্রিনশট তুলে নিচে ক্লিক করে পাঠান</p>
+<a href="https://wa.me/8801973965015?text=আমি পেমেন্ট করেছি, স্ক্রিনশট পাঠাচ্ছি" class="btn demo">
+📤 স্ক্রিনশট সাবমিট করুন
+</a>
+</div>
+
+<div class="footer">
+© 2026 Porashona Point — All Rights Reserved
+</div>
+
+</div>
+
+</div>
+
+<script>
+function toggle(el){
+  let ans = el.querySelector(".answer");
+  ans.style.display = ans.style.display === "block" ? "none" : "block";
+}
+
+function showPage(page){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(page).classList.add("active");
+  window.scrollTo(0,0);
+}
+
+function copy(text){
+  navigator.clipboard.writeText(text);
+  alert("Copied!");
+}
+
+function sendWhatsApp(){
+  let email = document.getElementById("email").value;
+  let url = "https://wa.me/8801973965015?text=আমি ফাইল নিতে চাই, আমার ইমেইল: " + email;
+  window.open(url, '_blank');
+}
+</script>
+
+</body>
+</html>
