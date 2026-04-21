@@ -3,167 +3,400 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="theme-color" content="#2563eb"/>
 <title>Porashona Point – আপডেটেড শিক্ষামূলক ফাইল ২০২৬</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet"/>
 
 <style>
-:root {
-  --blue:    #2563eb;
-  --blue-l:  #3b82f6;
-  --cyan:    #06b6d4;
-  --indigo:  #4f46e5;
-  --violet:  #7c3aed;
-  --emerald: #059669;
-  --em-l:    #10b981;
-  --amber:   #d97706;
-  --am-l:    #f59e0b;
-  --rose:    #e11d48;
-  --rose-l:  #f43f5e;
-  --bkash:   #e2136e;
-  --nagad:   #f05a28;
-  --glass:        rgba(255,255,255,0.60);
-  --glass-strong: rgba(255,255,255,0.80);
-  --glass-border: rgba(255,255,255,0.88);
-  --text-h:  #0a0f1e;
-  --text-b:  #1e293b;
-  --text-s:  #475569;
-  --text-m:  #94a3b8;
-  --shadow-sm: 0 2px 12px rgba(37,99,235,0.09);
-  --shadow-md: 0 8px 32px rgba(37,99,235,0.13);
-  --shadow-lg: 0 16px 48px rgba(37,99,235,0.17);
-  --r-sm:  14px; --r-md: 20px; --r-lg: 26px; --r-pill: 100px;
-  --fn-bn:  'Hind Siliguri', sans-serif;
-  --fn-dis: 'Plus Jakarta Sans', sans-serif;
+/* ─────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────── */
+:root{
+  --blue:#2563eb; --blue-l:#3b82f6;
+  --cyan:#06b6d4; --indigo:#4f46e5; --violet:#7c3aed;
+  --emerald:#059669; --em-l:#10b981;
+  --amber:#d97706; --rose:#e11d48; --rose-l:#f43f5e;
+  --bkash:#e2136e; --nagad:#f05a28;
+
+  /* Glass — solid fallback used on mobile via @media */
+  --glass:rgba(255,255,255,0.72);
+  --glass-s:rgba(255,255,255,0.88);
+  --glass-b:rgba(255,255,255,0.92);
+
+  --text-h:#0a0f1e; --text-b:#1e293b;
+  --text-s:#475569; --text-m:#94a3b8;
+
+  --sh-sm:0 2px 10px rgba(37,99,235,0.09);
+  --sh-md:0 6px 24px rgba(37,99,235,0.12);
+  --sh-lg:0 12px 40px rgba(37,99,235,0.16);
+
+  --r-sm:14px; --r-md:20px; --r-lg:26px; --r-pill:100px;
+  --fn-bn:'Hind Siliguri',sans-serif;
+  --fn-dis:'Plus Jakarta Sans',sans-serif;
 }
+
+/* ─────────────────────────────────────────
+   BASE RESET
+───────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;}
+
 body{
   font-family:var(--fn-bn);
+  /* Static gradient — no attachment:fixed (kills mobile perf) */
   background:#dbeafe;
   background-image:
-    radial-gradient(ellipse 80% 60% at 8%  0%,  #bfdbfe 0%, transparent 58%),
-    radial-gradient(ellipse 65% 50% at 92% 18%, #e0e7ff 0%, transparent 56%),
-    radial-gradient(ellipse 55% 50% at 50% 85%, #d1fae5 0%, transparent 58%),
-    radial-gradient(ellipse 48% 40% at 82% 98%, #fce7f3 0%, transparent 55%);
-  background-attachment:fixed;
-  min-height:100vh; color:var(--text-b); overflow-x:hidden;
+    radial-gradient(ellipse 90% 55% at 5%   0%,  #bfdbfe 0%,transparent 55%),
+    radial-gradient(ellipse 70% 50% at 95%  15%, #e0e7ff 0%,transparent 52%),
+    radial-gradient(ellipse 60% 50% at 50%  88%, #d1fae5 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 85% 100%, #fce7f3 0%,transparent 52%);
+  /* NO background-attachment:fixed — causes mobile repaint on every scroll */
+  min-height:100vh;
+  color:var(--text-b);
+  overflow-x:hidden;
 }
-/* Blobs */
-.blob{position:fixed;border-radius:50%;filter:blur(95px);opacity:0.26;z-index:0;pointer-events:none;animation:blobDrift 18s ease-in-out infinite alternate;}
-.blob-1{width:580px;height:580px;background:radial-gradient(#93c5fd,#818cf8);top:-160px;left:-160px;}
-.blob-2{width:440px;height:440px;background:radial-gradient(#6ee7b7,#bae6fd);bottom:-80px;right:-100px;animation-duration:23s;animation-direction:alternate-reverse;}
-.blob-3{width:280px;height:280px;background:radial-gradient(#fde68a,#fbcfe8);top:42%;left:52%;animation-duration:15s;}
-@keyframes blobDrift{0%{transform:translate(0,0) scale(1);}100%{transform:translate(48px,32px) scale(1.09);}}
 
-.wrapper{position:relative;z-index:1;max-width:480px;margin:0 auto;padding:0 16px 60px;}
+/* ─────────────────────────────────────────
+   BACKGROUND BLOBS
+   Key perf fixes:
+   • will-change:transform  → own compositor layer
+   • translateZ(0)           → force GPU
+   • filter:blur only on desktop
+   • reduced sizes & opacity
+───────────────────────────────────────── */
+.blob{
+  position:fixed; border-radius:50%; z-index:0; pointer-events:none;
+  will-change:transform;
+  animation:blobDrift 20s ease-in-out infinite alternate;
+}
+.blob-1{
+  width:480px;height:480px;
+  background:radial-gradient(circle at 40% 40%,#93c5fd 0%,#818cf8 100%);
+  opacity:0.22; top:-140px;left:-140px;
+  filter:blur(70px);
+}
+.blob-2{
+  width:380px;height:380px;
+  background:radial-gradient(circle at 40% 40%,#6ee7b7 0%,#bae6fd 100%);
+  opacity:0.20; bottom:-80px;right:-90px;
+  filter:blur(70px);
+  animation-duration:25s; animation-direction:alternate-reverse;
+}
+.blob-3{
+  width:240px;height:240px;
+  background:radial-gradient(circle at 40% 40%,#fde68a 0%,#fbcfe8 100%);
+  opacity:0.18; top:40%;left:50%;
+  filter:blur(60px);
+  animation-duration:17s;
+}
 
-/* ── Offer Strip ── */
+/* On mobile: kill blur entirely — huge GPU win */
+@media(max-width:600px){
+  .blob{filter:none!important;opacity:0.13!important;}
+}
+
+@keyframes blobDrift{
+  0%  {transform:translate3d(0,0,0) scale(1);}
+  100%{transform:translate3d(42px,28px,0) scale(1.07);}
+}
+
+/* ─────────────────────────────────────────
+   LAYOUT
+───────────────────────────────────────── */
+.wrapper{
+  position:relative; z-index:1;
+  max-width:480px; margin:0 auto;
+  padding:0 16px 60px;
+}
+
+/* ─────────────────────────────────────────
+   OFFER STRIP
+   Perf fix: use transform instead of background-position animation
+───────────────────────────────────────── */
 .offer-strip{
-  position:relative;z-index:10;
-  background:linear-gradient(90deg,var(--indigo),var(--blue),var(--cyan),var(--blue),var(--indigo));
-  background-size:300% 100%;
-  animation:stripSlide 5s linear infinite;
-  color:#fff;text-align:center;padding:9px 16px;font-size:0.8rem;font-weight:700;letter-spacing:0.4px;
+  position:relative; z-index:10; overflow:hidden;
+  background:linear-gradient(90deg,var(--indigo),var(--blue),var(--cyan));
+  color:#fff; text-align:center;
+  padding:9px 16px; font-size:0.8rem; font-weight:700; letter-spacing:0.4px;
 }
-@keyframes stripSlide{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
+/* Shimmer overlay using transform — GPU only */
+.offer-strip::after{
+  content:'';
+  position:absolute; inset:0;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.18) 50%,transparent 100%);
+  animation:shimmerSlide 3s linear infinite;
+  will-change:transform;
+}
+@keyframes shimmerSlide{
+  0%  {transform:translateX(-100%);}
+  100%{transform:translateX(100%);}
+}
 
-/* ── Logo ── */
-.nav{display:flex;justify-content:center;padding:28px 0 0;animation:fadeDown 0.7s ease both;}
+/* ─────────────────────────────────────────
+   GLASS MIXIN — reduced blur values
+   Desktop: blur(16px) max (was 26px)
+   Mobile:  no blur at all (solid bg)
+───────────────────────────────────────── */
+.glass{
+  background:var(--glass-s);
+  border:1.5px solid var(--glass-b);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+@media(max-width:600px){
+  .glass{
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+    background:rgba(255,255,255,0.92)!important;
+  }
+}
+
+/* ─────────────────────────────────────────
+   NAV / LOGO
+───────────────────────────────────────── */
+.nav{
+  display:flex; justify-content:center;
+  padding:28px 0 0;
+  animation:fadeDown 0.5s ease both;
+}
 .logo-pill{
-  display:inline-flex;align-items:center;gap:12px;
-  background:var(--glass-strong);border:1.5px solid var(--glass-border);
-  backdrop-filter:blur(24px) saturate(1.8);-webkit-backdrop-filter:blur(24px) saturate(1.8);
-  border-radius:var(--r-pill);padding:10px 22px 10px 12px;
-  box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,0.9);
+  display:inline-flex; align-items:center; gap:12px;
+  background:var(--glass-s);
+  border:1.5px solid var(--glass-b);
+  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border-radius:var(--r-pill);
+  padding:10px 22px 10px 12px;
+  box-shadow:var(--sh-md),inset 0 1px 0 rgba(255,255,255,0.9);
+}
+@media(max-width:600px){
+  .logo-pill{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,0.93);}
 }
 .logo-icon{
-  width:44px;height:44px;background:linear-gradient(135deg,var(--blue),var(--violet));
-  border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:21px;
-  box-shadow:0 4px 16px rgba(79,70,229,0.4),inset 0 1px 0 rgba(255,255,255,0.22);
+  width:44px;height:44px;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  border-radius:13px;
+  display:flex;align-items:center;justify-content:center;font-size:21px;
+  box-shadow:0 4px 14px rgba(79,70,229,0.38);
+  flex-shrink:0;
 }
-.logo-name{font-family:var(--fn-dis);font-weight:900;font-size:1.13rem;background:linear-gradient(135deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.logo-tagline{display:block;font-size:0.57rem;font-weight:500;color:var(--text-m);-webkit-text-fill-color:var(--text-m);margin-top:-1px;letter-spacing:0.2px;}
+.logo-name{
+  font-family:var(--fn-dis);font-weight:900;font-size:1.13rem;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.logo-tagline{
+  display:block;font-size:0.57rem;font-weight:500;
+  color:var(--text-m);-webkit-text-fill-color:var(--text-m);
+  margin-top:-1px;letter-spacing:0.2px;
+}
 
-/* ── Hero ── */
-.hero{text-align:center;padding:26px 0 0;animation:fadeUp 0.8s 0.1s ease both;}
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+.hero{text-align:center;padding:26px 0 0;animation:fadeUp 0.55s 0.08s ease both;}
+
 .badge-limited{
   display:inline-flex;align-items:center;gap:7px;
   background:linear-gradient(135deg,#fef3c7,#fde68a);
   border:1.5px solid #fbbf24;border-radius:var(--r-pill);
   padding:6px 18px;font-size:0.78rem;font-weight:700;color:#78350f;
-  box-shadow:0 4px 18px rgba(251,191,36,0.28);
-  animation:pulseGlow 2.8s ease-in-out infinite;margin-bottom:18px;
+  /* box-shadow animation → opacity animation (cheaper) */
+  box-shadow:0 4px 16px rgba(251,191,36,0.3);
+  margin-bottom:18px;
+  animation:badgePulse 3s ease-in-out infinite;
+  will-change:opacity;
 }
-@keyframes pulseGlow{0%,100%{box-shadow:0 4px 18px rgba(251,191,36,0.22);}50%{box-shadow:0 4px 26px rgba(251,191,36,0.55);}}
-.bdot{width:7px;height:7px;border-radius:50%;background:#f59e0b;animation:blink 1.2s ease infinite;flex-shrink:0;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.25;}}
+@keyframes badgePulse{0%,100%{opacity:1;}50%{opacity:0.82;}}
+/* Blink dot — opacity only */
+.bdot{
+  width:7px;height:7px;border-radius:50%;
+  background:#f59e0b;flex-shrink:0;
+  animation:blink 1.3s ease-in-out infinite;
+  will-change:opacity;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0.2;}}
 
-.hero-headline{font-family:var(--fn-dis);font-size:1.72rem;font-weight:900;line-height:1.28;color:var(--text-h);margin-bottom:22px;}
+.hero-headline{
+  font-family:var(--fn-dis);font-size:1.72rem;font-weight:900;
+  line-height:1.28;color:var(--text-h);margin-bottom:22px;
+}
 .hero-headline em{font-style:normal;color:var(--blue);}
 
-/* Price card */
+/* ─────────────────────────────────────────
+   PRICE CARD
+───────────────────────────────────────── */
 .price-card{
-  background:var(--glass-strong);border:1.5px solid var(--glass-border);
-  backdrop-filter:blur(26px) saturate(1.8);-webkit-backdrop-filter:blur(26px) saturate(1.8);
-  border-radius:var(--r-lg);padding:22px 20px 18px;
-  box-shadow:var(--shadow-lg),inset 0 1px 0 rgba(255,255,255,0.95);
-  margin-bottom:16px;position:relative;overflow:hidden;
+  background:rgba(255,255,255,0.88);
+  border:1.5px solid rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-radius:var(--r-lg);
+  padding:22px 20px 18px;
+  box-shadow:var(--sh-lg),inset 0 1px 0 rgba(255,255,255,1);
+  margin-bottom:16px;
+  position:relative;overflow:hidden;
 }
-.price-card::after{content:'';position:absolute;top:-45px;right:-45px;width:130px;height:130px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,0.09),transparent 70%);}
+@media(max-width:600px){
+  .price-card{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,0.95);}
+}
+/* Decorative circle — no filter, just a gradient */
+.price-card::after{
+  content:'';position:absolute;top:-50px;right:-50px;
+  width:130px;height:130px;border-radius:50%;
+  background:radial-gradient(circle,rgba(37,99,235,0.08),transparent 70%);
+  pointer-events:none;
+}
 .price-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:10px;}
 .price-old{font-size:1rem;color:var(--text-m);text-decoration:line-through;font-weight:500;}
 .price-sep{font-family:var(--fn-dis);font-size:1.1rem;color:var(--rose);font-weight:800;}
-.price-new{font-family:var(--fn-dis);font-size:2.9rem;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--rose),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;filter:drop-shadow(0 2px 6px rgba(225,29,72,0.2));}
+.price-new{
+  font-family:var(--fn-dis);font-size:2.9rem;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,var(--rose),var(--amber));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  /* drop-shadow removed — expensive on gradient text on mobile */
+}
 .price-badges{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;}
 .pbadge{display:inline-flex;align-items:center;gap:5px;border-radius:var(--r-pill);padding:4px 14px;font-size:0.75rem;font-weight:700;color:#fff;}
-.pbadge-green{background:linear-gradient(135deg,var(--emerald),var(--em-l));box-shadow:0 3px 10px rgba(5,150,105,0.32);}
-.pbadge-red{background:linear-gradient(135deg,var(--rose),var(--rose-l));box-shadow:0 3px 10px rgba(225,29,72,0.28);}
+.pbadge-green{background:linear-gradient(135deg,var(--emerald),var(--em-l));box-shadow:0 3px 8px rgba(5,150,105,0.28);}
+.pbadge-red{background:linear-gradient(135deg,var(--rose),var(--rose-l));box-shadow:0 3px 8px rgba(225,29,72,0.24);}
 
 /* Trust bar */
-.trust-bar{display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(5,150,105,0.08);border:1px solid rgba(5,150,105,0.2);border-radius:var(--r-pill);padding:9px 20px;margin-top:4px;}
-.trust-bar .t-text{font-size:0.85rem;font-weight:600;color:#065f46;}
-.trust-bar .t-text strong{color:var(--emerald);}
+.trust-bar{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:rgba(5,150,105,0.08);border:1px solid rgba(5,150,105,0.2);
+  border-radius:var(--r-pill);padding:9px 20px;margin-top:4px;
+}
+.t-text{font-size:0.85rem;font-weight:600;color:#065f46;}
+.t-text strong{color:var(--emerald);}
 
-/* ── Stats ── */
+/* ─────────────────────────────────────────
+   STATS ROW
+───────────────────────────────────────── */
 .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
-.stat-box{background:var(--glass-strong);border:1.5px solid var(--glass-border);backdrop-filter:blur(16px);border-radius:var(--r-md);padding:15px 10px;text-align:center;box-shadow:var(--shadow-sm);}
-.stat-num{font-family:var(--fn-dis);font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;}
+.stat-box{
+  background:rgba(255,255,255,0.88);border:1.5px solid rgba(255,255,255,0.95);
+  border-radius:var(--r-md);padding:15px 10px;text-align:center;
+  box-shadow:var(--sh-sm);
+}
+.stat-num{
+  font-family:var(--fn-dis);font-size:1.5rem;font-weight:900;line-height:1;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
 .stat-lbl{font-size:0.69rem;font-weight:600;color:var(--text-s);margin-top:4px;line-height:1.3;}
 
 /* Trust chips */
 .trust-chips{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-top:10px;}
-.chip{display:inline-flex;align-items:center;gap:4px;background:rgba(255,255,255,0.62);border:1px solid rgba(255,255,255,0.84);border-radius:var(--r-pill);padding:4px 12px;font-size:0.71rem;font-weight:600;color:var(--text-s);backdrop-filter:blur(8px);}
+.chip{
+  display:inline-flex;align-items:center;gap:4px;
+  background:rgba(255,255,255,0.85);border:1px solid rgba(255,255,255,0.9);
+  border-radius:var(--r-pill);padding:4px 12px;
+  font-size:0.71rem;font-weight:600;color:var(--text-s);
+}
 
-/* ── Buttons ── */
-.btn-group{display:flex;flex-direction:column;gap:11px;margin-top:20px;animation:fadeUp 0.8s 0.22s ease both;}
-.btn{display:flex;align-items:center;justify-content:center;gap:9px;border:none;border-radius:var(--r-sm);font-family:var(--fn-bn);font-size:1rem;font-weight:700;cursor:pointer;padding:16px 24px;text-decoration:none;letter-spacing:0.2px;transition:transform 0.17s cubic-bezier(.34,1.56,.64,1),box-shadow 0.17s;position:relative;overflow:hidden;}
-.btn::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,0.14) 0%,transparent 100%);pointer-events:none;}
-.btn:active{transform:scale(0.96)!important;}
-.btn-demo{background:var(--glass-strong);border:1.5px solid var(--glass-border);backdrop-filter:blur(16px);color:var(--text-b);box-shadow:var(--shadow-md);}
-.btn-demo:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
-.btn-cta{background:linear-gradient(135deg,var(--blue),var(--indigo),var(--violet));color:#fff;box-shadow:0 8px 24px rgba(79,70,229,0.42);}
-.btn-cta:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(79,70,229,0.52);}
-.btn-buy{background:linear-gradient(135deg,var(--rose),#f97316);color:#fff;box-shadow:0 8px 24px rgba(225,29,72,0.4);font-size:1.05rem;}
-.btn-buy:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(225,29,72,0.48);}
-.btn-ss{background:var(--glass-strong);border:1.5px solid var(--glass-border);backdrop-filter:blur(14px);color:var(--text-b);box-shadow:var(--shadow-sm);}
-.btn-ss:hover{transform:translateY(-2px);box-shadow:var(--shadow-md);}
+/* ─────────────────────────────────────────
+   BUTTONS
+   Perf: hover only on non-touch; active for mobile
+───────────────────────────────────────── */
+.btn-group{display:flex;flex-direction:column;gap:11px;margin-top:20px;animation:fadeUp 0.55s 0.18s ease both;}
+.btn{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  border:none;border-radius:var(--r-sm);
+  font-family:var(--fn-bn);font-size:1rem;font-weight:700;
+  cursor:pointer;padding:16px 24px;text-decoration:none;
+  letter-spacing:0.2px;
+  /* Only transform + opacity on transition — both GPU composited */
+  transition:transform 0.15s ease,opacity 0.15s ease;
+  -webkit-font-smoothing:antialiased;
+  position:relative;overflow:hidden;
+}
+/* Shine overlay — static, no animation */
+.btn::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(255,255,255,0.13) 0%,transparent 55%);
+  pointer-events:none;
+}
+.btn:active{transform:scale(0.96);opacity:0.9;}
 
-/* ── Cards ── */
-.card{background:var(--glass);border:1.5px solid var(--glass-border);backdrop-filter:blur(22px) saturate(1.6);-webkit-backdrop-filter:blur(22px) saturate(1.6);border-radius:var(--r-lg);padding:26px 20px;box-shadow:var(--shadow-md),inset 0 1px 0 rgba(255,255,255,0.85);margin-top:22px;}
-.card-title{font-family:var(--fn-dis);font-size:1.06rem;font-weight:800;color:var(--text-h);margin-bottom:18px;display:flex;align-items:center;gap:10px;}
+@media(hover:hover){
+  .btn-demo:hover{transform:translateY(-2px);}
+  .btn-cta:hover{transform:translateY(-2px);}
+  .btn-buy:hover{transform:translateY(-2px);}
+  .btn-ss:hover{transform:translateY(-1px);}
+}
+
+.btn-demo{
+  background:rgba(255,255,255,0.9);border:1.5px solid rgba(255,255,255,0.95);
+  color:var(--text-b);box-shadow:var(--sh-md);
+}
+.btn-cta{
+  background:linear-gradient(135deg,var(--blue),var(--indigo),var(--violet));
+  color:#fff;box-shadow:0 7px 20px rgba(79,70,229,0.38);
+}
+.btn-buy{
+  background:linear-gradient(135deg,var(--rose),#f97316);
+  color:#fff;box-shadow:0 7px 20px rgba(225,29,72,0.36);font-size:1.05rem;
+}
+.btn-ss{
+  background:rgba(255,255,255,0.9);border:1.5px solid rgba(255,255,255,0.95);
+  color:var(--text-b);box-shadow:var(--sh-sm);
+}
+
+/* ─────────────────────────────────────────
+   SECTION CARDS
+───────────────────────────────────────── */
+.card{
+  background:var(--glass);
+  border:1.5px solid var(--glass-b);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-radius:var(--r-lg);
+  padding:26px 20px;
+  box-shadow:var(--sh-md),inset 0 1px 0 rgba(255,255,255,0.85);
+  margin-top:22px;
+}
+@media(max-width:600px){
+  .card{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(255,255,255,0.9);}
+}
+.card-title{
+  font-family:var(--fn-dis);font-size:1.06rem;font-weight:800;
+  color:var(--text-h);margin-bottom:18px;
+  display:flex;align-items:center;gap:10px;
+}
 .ctbar{width:4px;height:22px;border-radius:4px;background:linear-gradient(180deg,var(--blue),var(--violet));flex-shrink:0;}
 
-/* Scroll reveal */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
+/* ─────────────────────────────────────────
+   SCROLL REVEAL
+   Use will-change so browser pre-promotes
+───────────────────────────────────────── */
+.reveal{
+  opacity:0;transform:translateY(24px);
+  transition:opacity 0.5s ease,transform 0.5s ease;
+  will-change:opacity,transform;
+}
+.reveal.visible{opacity:1;transform:translateY(0);will-change:auto;}
 
-/* ── Benefits ── */
+/* ─────────────────────────────────────────
+   BENEFITS
+───────────────────────────────────────── */
 .benefit-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.benefit-item{display:flex;align-items:flex-start;gap:12px;background:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.76);border-radius:var(--r-sm);padding:13px 14px;box-shadow:0 2px 8px rgba(37,99,235,0.055);transition:transform 0.18s,box-shadow 0.18s;}
-.benefit-item:hover{transform:translateX(4px);box-shadow:0 4px 16px rgba(37,99,235,0.1);}
-.b-icon{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:1.05rem;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.benefit-item{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(255,255,255,0.65);
+  border:1px solid rgba(255,255,255,0.85);
+  border-radius:var(--r-sm);padding:13px 14px;
+  box-shadow:0 2px 6px rgba(37,99,235,0.05);
+  transition:transform 0.15s ease;
+}
+@media(hover:hover){
+  .benefit-item:hover{transform:translateX(4px);}
+}
+.b-icon{
+  width:38px;height:38px;border-radius:11px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.05rem;flex-shrink:0;
+  box-shadow:0 2px 6px rgba(0,0,0,0.07);
+}
 .ic-blue  {background:linear-gradient(135deg,#dbeafe,#bfdbfe);}
 .ic-green {background:linear-gradient(135deg,#d1fae5,#a7f3d0);}
 .ic-vlt   {background:linear-gradient(135deg,#ede9fe,#ddd6fe);}
@@ -172,101 +405,212 @@ body{
 .b-title{font-size:0.9rem;font-weight:700;color:var(--text-h);margin-bottom:2px;}
 .b-desc{font-size:0.78rem;color:var(--text-s);line-height:1.52;}
 
-/* ── FAQ ── */
+/* ─────────────────────────────────────────
+   FAQ
+───────────────────────────────────────── */
 .faq-list{display:flex;flex-direction:column;gap:8px;}
-.faq-item{background:rgba(255,255,255,0.5);border:1.5px solid rgba(255,255,255,0.78);border-radius:var(--r-sm);overflow:hidden;transition:box-shadow 0.2s;}
-.faq-item.open{border-color:rgba(37,99,235,0.2);box-shadow:0 4px 16px rgba(37,99,235,0.1);}
-.faq-q{width:100%;background:none;border:none;text-align:left;padding:14px 14px;font-family:var(--fn-bn);font-size:0.9rem;font-weight:600;color:var(--text-h);cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:10px;}
-.faq-arrow{flex-shrink:0;width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--indigo));display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.65rem;transition:transform 0.3s cubic-bezier(.34,1.56,.64,1);}
+.faq-item{
+  background:rgba(255,255,255,0.65);
+  border:1.5px solid rgba(255,255,255,0.85);
+  border-radius:var(--r-sm);overflow:hidden;
+  transition:box-shadow 0.2s;
+}
+.faq-item.open{border-color:rgba(37,99,235,0.18);box-shadow:0 4px 14px rgba(37,99,235,0.09);}
+.faq-q{
+  width:100%;background:none;border:none;text-align:left;
+  padding:14px 14px;font-family:var(--fn-bn);font-size:0.9rem;font-weight:600;
+  color:var(--text-h);cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  -webkit-tap-highlight-color:transparent;
+}
+.faq-arrow{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:linear-gradient(135deg,var(--blue),var(--indigo));
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:0.65rem;
+  /* Only transform animated — GPU */
+  transition:transform 0.28s cubic-bezier(.34,1.4,.64,1);
+  will-change:transform;
+}
 .faq-item.open .faq-arrow{transform:rotate(180deg);}
-.faq-a{max-height:0;overflow:hidden;transition:max-height 0.38s ease,padding 0.25s;font-size:0.86rem;color:var(--text-s);line-height:1.72;padding:0 14px;}
+.faq-a{
+  max-height:0;overflow:hidden;
+  transition:max-height 0.35s ease,padding 0.22s;
+  font-size:0.86rem;color:var(--text-s);line-height:1.72;padding:0 14px;
+}
 .faq-item.open .faq-a{max-height:260px;padding:0 14px 14px;}
 
-/* ── Payment ── */
-.payment-hero{background:linear-gradient(135deg,var(--rose),#f97316);border-radius:var(--r-md);padding:18px 20px;display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;box-shadow:0 8px 28px rgba(225,29,72,0.28);position:relative;overflow:hidden;}
-.payment-hero::before{content:'';position:absolute;top:-35px;right:-35px;width:130px;height:130px;border-radius:50%;background:rgba(255,255,255,0.11);}
-.ph-label{font-size:0.78rem;color:rgba(255,255,255,0.8);font-weight:600;}
-.ph-price{font-family:var(--fn-dis);font-size:2.6rem;font-weight:900;color:#fff;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,0.12);}
+/* ─────────────────────────────────────────
+   PAYMENT SECTION
+───────────────────────────────────────── */
+.payment-hero{
+  background:linear-gradient(135deg,var(--rose),#f97316);
+  border-radius:var(--r-md);padding:18px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:22px;
+  box-shadow:0 7px 22px rgba(225,29,72,0.26);
+  position:relative;overflow:hidden;
+}
+.payment-hero::before{
+  content:'';position:absolute;top:-35px;right:-35px;
+  width:120px;height:120px;border-radius:50%;
+  background:rgba(255,255,255,0.10);pointer-events:none;
+}
+.ph-label{font-size:0.78rem;color:rgba(255,255,255,0.82);font-weight:600;}
+.ph-price{font-family:var(--fn-dis);font-size:2.6rem;font-weight:900;color:#fff;line-height:1;}
 .ph-icon{font-size:2.8rem;}
 
-.steps{display:flex;flex-direction:column;gap:0;}
-.step-row{display:flex;gap:14px;position:relative;padding-bottom:18px;}
+.steps{display:flex;flex-direction:column;}
+.step-row{display:flex;gap:14px;padding-bottom:18px;}
 .step-row:last-child{padding-bottom:0;}
 .step-line-wrap{display:flex;flex-direction:column;align-items:center;}
-.step-num{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:linear-gradient(135deg,var(--blue),var(--indigo));color:#fff;font-family:var(--fn-dis);font-weight:800;font-size:0.88rem;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px rgba(37,99,235,0.38);}
-.step-conn{flex:1;width:2px;margin-top:4px;background:linear-gradient(180deg,rgba(37,99,235,0.22),transparent);border-radius:2px;}
+.step-num{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--blue),var(--indigo));
+  color:#fff;font-family:var(--fn-dis);font-weight:800;font-size:0.88rem;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 12px rgba(37,99,235,0.34);
+}
+.step-conn{
+  flex:1;width:2px;margin-top:4px;
+  background:linear-gradient(180deg,rgba(37,99,235,0.2),transparent);
+  border-radius:2px;
+}
 .step-row:last-child .step-conn{display:none;}
 .step-body{flex:1;padding-top:5px;}
 .step-title{font-size:0.9rem;font-weight:700;color:var(--text-h);margin-bottom:4px;}
 .step-desc{font-size:0.82rem;color:var(--text-s);line-height:1.55;}
 
 /* Payment method card */
-.pm-card{background:rgba(255,255,255,0.62);border:1.5px solid rgba(255,255,255,0.88);border-radius:var(--r-sm);padding:12px 14px;margin-top:9px;display:flex;align-items:center;justify-content:space-between;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,0.055);}
+.pm-card{
+  background:rgba(255,255,255,0.75);border:1.5px solid rgba(255,255,255,0.92);
+  border-radius:var(--r-sm);padding:12px 14px;margin-top:9px;
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.05);
+}
 .pm-left{display:flex;align-items:center;gap:10px;}
-.pm-badge{font-family:var(--fn-dis);font-weight:800;font-size:0.78rem;padding:5px 11px;border-radius:8px;flex-shrink:0;letter-spacing:0.3px;}
-.pm-bkash{background:var(--bkash);color:#fff;box-shadow:0 3px 10px rgba(226,19,110,0.28);}
-.pm-nagad{background:var(--nagad);color:#fff;box-shadow:0 3px 10px rgba(240,90,40,0.28);}
+.pm-badge{
+  font-family:var(--fn-dis);font-weight:800;font-size:0.78rem;
+  padding:5px 11px;border-radius:8px;flex-shrink:0;letter-spacing:0.3px;
+}
+.pm-bkash{background:var(--bkash);color:#fff;box-shadow:0 3px 8px rgba(226,19,110,0.24);}
+.pm-nagad{background:var(--nagad);color:#fff;box-shadow:0 3px 8px rgba(240,90,40,0.24);}
 .pm-num{font-family:var(--fn-dis);font-size:0.98rem;font-weight:700;color:var(--text-h);letter-spacing:0.5px;}
 
 /* Copy button */
-.copy-btn{display:flex;align-items:center;gap:5px;background:linear-gradient(135deg,var(--blue-l),var(--indigo));border:none;border-radius:8px;padding:8px 13px;font-family:var(--fn-bn);font-size:0.76rem;font-weight:700;color:#fff;cursor:pointer;flex-shrink:0;box-shadow:0 3px 10px rgba(37,99,235,0.28);transition:transform 0.15s,box-shadow 0.15s;}
-.copy-btn:hover{transform:translateY(-1px);box-shadow:0 5px 14px rgba(37,99,235,0.38);}
-.copy-btn:active{transform:scale(0.94);}
-.copy-btn.copied{background:linear-gradient(135deg,var(--emerald),var(--em-l));box-shadow:0 3px 10px rgba(5,150,105,0.28);}
+.copy-btn{
+  display:flex;align-items:center;gap:5px;
+  background:linear-gradient(135deg,var(--blue-l),var(--indigo));
+  border:none;border-radius:8px;padding:8px 13px;
+  font-family:var(--fn-bn);font-size:0.76rem;font-weight:700;color:#fff;
+  cursor:pointer;flex-shrink:0;
+  box-shadow:0 3px 8px rgba(37,99,235,0.24);
+  transition:transform 0.13s ease,opacity 0.13s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.copy-btn:active{transform:scale(0.93);opacity:0.85;}
+@media(hover:hover){.copy-btn:hover{transform:translateY(-1px);}}
+.copy-btn.copied{
+  background:linear-gradient(135deg,var(--emerald),var(--em-l));
+  box-shadow:0 3px 8px rgba(5,150,105,0.24);
+}
 
 /* Email input */
 .email-group{display:flex;flex-direction:column;gap:7px;margin-top:22px;}
 .email-label{font-size:0.84rem;font-weight:700;color:var(--text-h);}
-.email-input{border:1.5px solid rgba(37,99,235,0.2);border-radius:var(--r-sm);padding:14px 16px;font-family:var(--fn-bn);font-size:0.96rem;background:rgba(255,255,255,0.72);backdrop-filter:blur(10px);color:var(--text-h);outline:none;transition:border-color 0.2s,box-shadow 0.2s;box-shadow:var(--shadow-sm);}
-.email-input:focus{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,0.11),var(--shadow-sm);}
+.email-input{
+  border:1.5px solid rgba(37,99,235,0.2);border-radius:var(--r-sm);
+  padding:14px 16px;font-family:var(--fn-bn);font-size:0.96rem;
+  background:rgba(255,255,255,0.88);
+  color:var(--text-h);outline:none;
+  transition:border-color 0.18s,box-shadow 0.18s;
+  box-shadow:var(--sh-sm);
+  -webkit-appearance:none;
+}
+.email-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
 .email-input::placeholder{color:var(--text-m);}
-.email-input.err{border-color:var(--rose);box-shadow:0 0 0 4px rgba(225,29,72,0.1);}
+.email-input.err{border-color:var(--rose);box-shadow:0 0 0 3px rgba(225,29,72,0.09);}
 
 .btn-row{display:flex;flex-direction:column;gap:10px;margin-top:14px;}
 
-/* ── Floating WA ── */
-.wa-float{position:fixed;bottom:24px;right:18px;z-index:999;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#25d366,#128c7e);display:flex;align-items:center;justify-content:center;font-size:1.7rem;box-shadow:0 6px 24px rgba(37,211,102,0.5),0 2px 8px rgba(0,0,0,0.1);text-decoration:none;animation:waFloat 2.8s ease-in-out infinite;transition:transform 0.2s;}
-.wa-float:hover{transform:scale(1.1)!important;}
-@keyframes waFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
-.wa-float::before{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,0.32);animation:waPing 2.1s ease infinite;}
-@keyframes waPing{0%{transform:scale(1);opacity:1;}100%{transform:scale(1.48);opacity:0;}}
+/* ─────────────────────────────────────────
+   FLOATING WHATSAPP
+   Transform-only animation — GPU composited
+───────────────────────────────────────── */
+.wa-float{
+  position:fixed;bottom:24px;right:18px;z-index:999;
+  width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(135deg,#25d366,#128c7e);
+  display:flex;align-items:center;justify-content:center;font-size:1.7rem;
+  box-shadow:0 6px 22px rgba(37,211,102,0.45);
+  text-decoration:none;
+  animation:waFloat 3s ease-in-out infinite;
+  will-change:transform;
+}
+@keyframes waFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+/* Ping ring */
+.wa-float::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid rgba(37,211,102,0.3);
+  animation:waPing 2.2s ease-out infinite;
+  will-change:transform,opacity;
+}
+@keyframes waPing{
+  0%  {transform:scale(1);opacity:1;}
+  100%{transform:scale(1.45);opacity:0;}
+}
 
-/* ── Footer ── */
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
 footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
-.footer-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,0.16),transparent);margin:0 28px 18px;}
-.footer-logo{font-family:var(--fn-dis);font-weight:900;font-size:1rem;background:linear-gradient(135deg,var(--blue),var(--violet));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:7px;}
+.footer-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,0.15),transparent);margin:0 28px 18px;}
+.footer-logo{
+  font-family:var(--fn-dis);font-weight:900;font-size:1rem;
+  background:linear-gradient(135deg,var(--blue),var(--violet));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:7px;
+}
 .footer-copy{font-size:0.74rem;color:var(--text-m);line-height:1.9;}
 .footer-copy .heart{color:var(--rose);-webkit-text-fill-color:var(--rose);}
 
-/* ── Animations ── */
-@keyframes fadeUp{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:translateY(0)}}
-@keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+/* ─────────────────────────────────────────
+   KEYFRAMES — entry animations
+───────────────────────────────────────── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px);}to{opacity:1;transform:translateY(0);}}
 
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
 @media(max-width:360px){
   .hero-headline{font-size:1.45rem;}
-  .ph-price{font-size:2.2rem;}
+  .ph-price{font-size:2.1rem;}
   .stat-num{font-size:1.25rem;}
 }
 </style>
 </head>
 <body>
 
-<div class="blob blob-1"></div>
-<div class="blob blob-2"></div>
-<div class="blob blob-3"></div>
+<!-- BG Blobs — separated from content for GPU compositing -->
+<div class="blob blob-1" aria-hidden="true"></div>
+<div class="blob blob-2" aria-hidden="true"></div>
+<div class="blob blob-3" aria-hidden="true"></div>
 
 <!-- Floating WhatsApp -->
-<a class="wa-float" href="https://wa.me/8801973965015" target="_blank" title="WhatsApp">💬</a>
+<a class="wa-float" href="https://wa.me/8801973965015" target="_blank" rel="noopener" title="WhatsApp এ যোগাযোগ করুন" aria-label="WhatsApp">💬</a>
 
 <!-- Offer Strip -->
-<div class="offer-strip">⚡ সীমিত সময়ের অফার — ৳৪৯৯ এর জায়গায় মাত্র ৳২৯৯ &nbsp;|&nbsp; আজই সুযোগ নিন!</div>
+<div class="offer-strip" role="banner">
+  ⚡ সীমিত সময়ের অফার — ৳৪৯৯ এর জায়গায় মাত্র ৳২৯৯ &nbsp;|&nbsp; আজই সুযোগ নিন!
+</div>
 
 <div class="wrapper">
 
   <!-- LOGO -->
-  <nav class="nav">
+  <nav class="nav" aria-label="Logo">
     <div class="logo-pill">
-      <div class="logo-icon">📘</div>
+      <div class="logo-icon" aria-hidden="true">📘</div>
       <div>
         <span class="logo-name">Porashona Point</span>
         <span class="logo-tagline">সাশ্রয়ী মূল্যে আপডেটেড শিক্ষামূলক ফাইলের নির্ভরযোগ্য প্ল্যাটফর্ম</span>
@@ -276,8 +620,8 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
 
   <!-- HERO -->
   <section class="hero">
-    <div class="badge-limited">
-      <span class="bdot"></span>
+    <div class="badge-limited" role="note">
+      <span class="bdot" aria-hidden="true"></span>
       ⚡ Limited Time Offer — আজই সুযোগ নিন!
     </div>
 
@@ -285,11 +629,11 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
       📘 ১ম – ১২ শ্রেণির সকল<br/><em>আপডেটেড ২০২৬ ফাইল</em>
     </h1>
 
-    <div class="price-card">
+    <div class="price-card" aria-label="মূল্য তথ্য">
       <div class="price-row">
-        <span class="price-old">৳৪৯৯</span>
-        <span class="price-sep">→</span>
-        <span class="price-new">৳২৯৯</span>
+        <span class="price-old" aria-label="আগের মূল্য">৳৪৯৯</span>
+        <span class="price-sep" aria-hidden="true">→</span>
+        <span class="price-new" aria-label="এখনকার মূল্য">৳২৯৯</span>
       </div>
       <div class="price-badges">
         <span class="pbadge pbadge-green">🎉 ৳২০০ সাশ্রয়</span>
@@ -297,14 +641,14 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
       </div>
     </div>
 
-    <div class="trust-bar">
-      <span style="font-size:1rem;">🏆</span>
+    <div class="trust-bar" role="note">
+      <span aria-hidden="true">🏆</span>
       <span class="t-text">ইতোমধ্যে <strong>৩২৫+</strong> শিক্ষক ব্যবহার করছেন</span>
     </div>
   </section>
 
   <!-- STATS -->
-  <div class="stats-row reveal">
+  <div class="stats-row reveal" aria-label="পরিসংখ্যান">
     <div class="stat-box">
       <div class="stat-num">৩২৫+</div>
       <div class="stat-lbl">সন্তুষ্ট শিক্ষক</div>
@@ -321,7 +665,7 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
 
   <!-- CTA BUTTONS -->
   <div class="btn-group">
-    <a class="btn btn-demo" href="https://drive.google.com/drive/folders/1HqmL3s2dOMwjakEPteLNFcmika67lEHD" target="_blank">
+    <a class="btn btn-demo" href="https://drive.google.com/drive/folders/1HqmL3s2dOMwjakEPteLNFcmika67lEHD" target="_blank" rel="noopener">
       📂 বিনামূল্যে ডেমো দেখুন
     </a>
     <a class="btn btn-cta" href="#payment">
@@ -339,40 +683,40 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
   <!-- BENEFITS -->
   <div class="card reveal">
     <div class="card-title">
-      <span class="ctbar"></span>
+      <span class="ctbar" aria-hidden="true"></span>
       আপনি কী কী পাচ্ছেন?
     </div>
     <ul class="benefit-list">
       <li class="benefit-item">
-        <span class="b-icon ic-blue">✅</span>
+        <span class="b-icon ic-blue" aria-hidden="true">✅</span>
         <div>
           <div class="b-title">সম্পূর্ণ আপডেটেড ২০২৬</div>
           <div class="b-desc">নতুন কারিকুলাম অনুযায়ী প্রতিটি ফাইল আপডেট করা</div>
         </div>
       </li>
       <li class="benefit-item">
-        <span class="b-icon ic-green">📝</span>
+        <span class="b-icon ic-green" aria-hidden="true">📝</span>
         <div>
           <div class="b-title">হাজার MCQ + সঠিক উত্তর</div>
           <div class="b-desc">সকল বিষয়ে হাজার হাজার MCQ প্রশ্ন উত্তরসহ</div>
         </div>
       </li>
       <li class="benefit-item">
-        <span class="b-icon ic-vlt">📄</span>
+        <span class="b-icon ic-vlt" aria-hidden="true">📄</span>
         <div>
           <div class="b-title">Editable Word ফাইল</div>
           <div class="b-desc">যেকোনো ডিভাইসে খুলুন, এডিট করুন, প্রিন্ট করুন</div>
         </div>
       </li>
       <li class="benefit-item">
-        <span class="b-icon ic-amb">🚀</span>
+        <span class="b-icon ic-amb" aria-hidden="true">🚀</span>
         <div>
           <div class="b-title">Ready to Use</div>
           <div class="b-desc">ডাউনলোড করেই সরাসরি ক্লাসে ব্যবহার করুন</div>
         </div>
       </li>
       <li class="benefit-item">
-        <span class="b-icon ic-cyan">🔄</span>
+        <span class="b-icon ic-cyan" aria-hidden="true">🔄</span>
         <div>
           <div class="b-title">ফ্রি আপডেট চিরজীবন</div>
           <div class="b-desc">একবার কিনলে ভবিষ্যতের সব আপডেট বিনামূল্যে পাবেন</div>
@@ -384,71 +728,71 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
   <!-- FAQ -->
   <div class="card reveal">
     <div class="card-title">
-      <span class="ctbar"></span>
+      <span class="ctbar" aria-hidden="true"></span>
       সাধারণ প্রশ্নোত্তর (FAQ)
     </div>
     <div class="faq-list">
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           ফাইলগুলো কোন শ্রেণির জন্য?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">১ম শ্রেণি থেকে ১২ শ্রেণি পর্যন্ত সকল শ্রেণির আপডেটেড ২০২৬ ফাইল এই প্যাকেজে অন্তর্ভুক্ত।</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           পেমেন্ট করার পর ফাইল কতক্ষণে পাব?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">পেমেন্টের স্ক্রিনশট WhatsApp-এ পাঠানোর পর আপনার দেওয়া Gmail-এ Google Drive লিঙ্ক পাঠানো হবে। সাধারণত মাত্র ২–১৫ মিনিটের মধ্যে।</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           ফাইলগুলো কি Editable?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">হ্যাঁ! সব ফাইল Microsoft Word ফরম্যাটে (.docx) দেওয়া হয়, যা যেকোনো ডিভাইসে সহজে এডিট ও প্রিন্ট করা যাবে।</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           কোন কোন বিষয়ের ফাইল আছে?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">বাংলা, ইংরেজি, গণিত, বিজ্ঞান, সমাজ, ইসলাম শিক্ষাসহ সকল বিষয়ের ফাইল অন্তর্ভুক্ত। ডেমো দেখে নিশ্চিত হয়ে নিন।</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           Free updates কি সত্যিই পাওয়া যাবে?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">হ্যাঁ, একবার কিনলে ভবিষ্যতে যেকোনো আপডেট বিনামূল্যে পাবেন। WhatsApp-এ জানালেই আপডেটেড ফাইল পাঠানো হবে।</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           কোন মাধ্যমে পেমেন্ট করা যাবে?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">Bkash ও Nagad উভয় মাধ্যমে পেমেন্ট করা যাবে। নম্বর: 01581857663। নিচে Copy বাটনে চাপলেই নম্বর কপি হয়ে যাবে।</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           ডেমো দেখতে পারব?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">অবশ্যই! উপরের "ডেমো দেখুন" বাটনে ক্লিক করলে Google Drive ফোল্ডারে নমুনা ফাইল দেখতে পাবেন — সম্পূর্ণ বিনামূল্যে।</div>
       </div>
 
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
+        <button class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">
           মোবাইলে কাজ করবে?
-          <span class="faq-arrow">▾</span>
+          <span class="faq-arrow" aria-hidden="true">▾</span>
         </button>
         <div class="faq-a">হ্যাঁ! Google Drive লিঙ্ক পেলে মোবাইল, ট্যাবলেট বা কম্পিউটার — যেকোনো ডিভাইসে ডাউনলোড করে ব্যবহার করতে পারবেন।</div>
       </div>
@@ -459,23 +803,23 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
   <!-- PAYMENT -->
   <div class="card reveal" id="payment">
     <div class="card-title">
-      <span class="ctbar"></span>
+      <span class="ctbar" aria-hidden="true"></span>
       💳 পেমেন্ট করুন ও ফাইল নিন
     </div>
 
-    <div class="payment-hero">
+    <div class="payment-hero" aria-label="মূল্য">
       <div>
         <div class="ph-label">অফার মূল্য</div>
         <div class="ph-price">৳২৯৯ 🔥</div>
       </div>
-      <div class="ph-icon">💸</div>
+      <div class="ph-icon" aria-hidden="true">💸</div>
     </div>
 
     <div class="steps">
       <div class="step-row">
         <div class="step-line-wrap">
-          <div class="step-num">১</div>
-          <div class="step-conn"></div>
+          <div class="step-num" aria-label="ধাপ ১">১</div>
+          <div class="step-conn" aria-hidden="true"></div>
         </div>
         <div class="step-body">
           <div class="step-title">আপনার Gmail লিখুন</div>
@@ -485,8 +829,8 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
 
       <div class="step-row">
         <div class="step-line-wrap">
-          <div class="step-num">২</div>
-          <div class="step-conn"></div>
+          <div class="step-num" aria-label="ধাপ ২">২</div>
+          <div class="step-conn" aria-hidden="true"></div>
         </div>
         <div class="step-body">
           <div class="step-title">নিচের নম্বরে ২৯৯ টাকা পাঠান</div>
@@ -497,7 +841,7 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
               <span class="pm-badge pm-bkash">bKash</span>
               <span class="pm-num">01581857663</span>
             </div>
-            <button class="copy-btn" onclick="copyNum(this,'01581857663')">📋 কপি</button>
+            <button class="copy-btn" onclick="copyNum(this,'01581857663')" aria-label="bKash নম্বর কপি করুন">📋 কপি</button>
           </div>
 
           <div class="pm-card">
@@ -505,30 +849,27 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
               <span class="pm-badge pm-nagad">Nagad</span>
               <span class="pm-num">01581857663</span>
             </div>
-            <button class="copy-btn" onclick="copyNum(this,'01581857663')">📋 কপি</button>
+            <button class="copy-btn" onclick="copyNum(this,'01581857663')" aria-label="Nagad নম্বর কপি করুন">📋 কপি</button>
           </div>
         </div>
       </div>
 
       <div class="step-row">
         <div class="step-line-wrap">
-          <div class="step-num">৩</div>
+          <div class="step-num" aria-label="ধাপ ৩">৩</div>
         </div>
         <div class="step-body">
           <div class="step-title">WhatsApp-এ স্ক্রিনশট পাঠান</div>
-          <div class="step-desc"> <strong>Send Money</strong> এর স্ক্রিনশট পাঠালেই <strong>২–১৫ মিনিটের মধ্যে</strong> Gmail-এ ফাইল পৌঁছাবে।</div>
+          <div class="step-desc"><strong>Send Money</strong> স্ক্রিনশট পাঠালেই <strong>২–১৫ মিনিটের মধ্যে</strong> Gmail-এ ফাইল পৌঁছাবে।</div>
         </div>
       </div>
-    </div>
-
-    <div class="email-group">
-      <label class="email-label" for="userEmail">📧 আপনার Gmail লিখুন</label>
-      <input class="email-input" type="email" id="userEmail" placeholder="example@gmail.com"/>
+    </div    <div class="email-group"><label class="email-label" for="userEmail">📧 আপনার Gmail লিখুন</label>
+      <input class="email-input" type="email" id="userEmail" placeholder="example@gmail.com" autocomplete="email" inputmode="email"/>
     </div>
 
     <div class="btn-row">
       <button class="btn btn-buy" onclick="openWhatsApp()">🛒 WhatsApp-এ অর্ডার করুন</button>
-      <button class="btn btn-ss" onclick="sendScreenshot()">📸 পেমেন্ট স্ক্রিনশট পাঠান</button>
+      <button class="btn btn-ss" onclick="sendScreenshot()">📸 Send Money এর স্ক্রিনশট পাঠান</button>
     </div>
 
     <div class="trust-chips" style="margin-top:16px;">
@@ -537,10 +878,10 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
     </div>
   </div>
 
-</div>
+</div><!-- /wrapper -->
 
 <footer>
-  <div class="footer-divider"></div>
+  <div class="footer-divider" aria-hidden="true"></div>
   <div class="footer-logo">📘 Porashona Point</div>
   <div class="footer-copy">
     সাশ্রয়ী মূল্যে আপডেটেড শিক্ষামূলক ফাইলের নির্ভরযোগ্য প্ল্যাটফর্ম<br/>
@@ -550,55 +891,70 @@ footer{position:relative;z-index:1;text-align:center;padding:32px 16px 22px;}
 </footer>
 
 <script>
-function toggleFaq(btn) {
+/* ── FAQ toggle ── */
+function toggleFaq(btn){
   const item = btn.closest('.faq-item');
   const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
-}
-
-function copyNum(btn, num) {
-  const doFeedback = () => {
-    btn.classList.add('copied');
-    btn.innerHTML = '✅ কপি!';
-    setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '📋 কপি'; }, 2200);
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(num).then(doFeedback).catch(() => fallbackCopy(num, doFeedback));
-  } else {
-    fallbackCopy(num, doFeedback);
+  document.querySelectorAll('.faq-item.open').forEach(el=>{
+    el.classList.remove('open');
+    el.querySelector('.faq-q').setAttribute('aria-expanded','false');
+  });
+  if(!wasOpen){
+    item.classList.add('open');
+    btn.setAttribute('aria-expanded','true');
   }
 }
-function fallbackCopy(text, cb) {
-  const ta = document.createElement('textarea');
-  ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-  document.body.appendChild(ta); ta.select();
-  try { document.execCommand('copy'); } catch(e) {}
-  document.body.removeChild(ta); cb();
+
+/* ── Copy number ── */
+function copyNum(btn,num){
+  const done=()=>{
+    btn.classList.add('copied');
+    btn.textContent='✅ কপি!';
+    setTimeout(()=>{btn.classList.remove('copied');btn.innerHTML='📋 কপি';},2000);
+  };
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(num).then(done).catch(()=>legacyCopy(num,done));
+  }else{legacyCopy(num,done);}
+}
+function legacyCopy(txt,cb){
+  const el=document.createElement('textarea');
+  el.value=txt; el.style.cssText='position:fixed;opacity:0;top:0;left:0;';
+  document.body.appendChild(el); el.focus(); el.select();
+  try{document.execCommand('copy');}catch(e){}
+  document.body.removeChild(el); cb();
 }
 
-function openWhatsApp() {
-  const inp = document.getElementById('userEmail');
-  const email = inp.value.trim();
-  if (!email || !email.includes('@') || !email.includes('.')) {
+/* ── WhatsApp order ── */
+function openWhatsApp(){
+  const inp=document.getElementById('userEmail');
+  const v=inp.value.trim();
+  if(!v||!v.includes('@')||!v.includes('.')){
     inp.classList.add('err'); inp.focus();
-    setTimeout(() => inp.classList.remove('err'), 2200);
+    setTimeout(()=>inp.classList.remove('err'),2000);
     return;
   }
-  const msg = encodeURIComponent('আমি ফাইল নিতে চাই, আমার ইমেইল: ' + email);
-  window.open('https://wa.me/8801973965015?text=' + msg, '_blank');
+  window.open('https://wa.me/8801973965015?text='+encodeURIComponent('আমি ফাইল নিতে চাই, আমার ইমেইল: '+v),'_blank','noopener');
 }
 
-function sendScreenshot() {
-  const msg = encodeURIComponent('আমি পেমেন্ট করেছি, স্ক্রিনশট পাঠাচ্ছি');
-  window.open('https://wa.me/8801973965015?text=' + msg, '_blank');
+/* ── Screenshot ── */
+function sendScreenshot(){
+  window.open('https://wa.me/8801973965015?text='+encodeURIComponent('আমি পেমেন্ট করেছি, স্ক্রিনশট পাঠাচ্ছি'),'_blank','noopener');
 }
 
-/* Scroll reveal */
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, { threshold: 0.09 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+/* ── Scroll reveal — passive observer ── */
+(function(){
+  const els=document.querySelectorAll('.reveal');
+  if(!els.length)return;
+  const io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(function(el){io.observe(el);});
+})();
 </script>
 </body>
   </html>
